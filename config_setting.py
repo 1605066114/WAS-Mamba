@@ -10,7 +10,7 @@ class setting_config:
     """
     the config of training setting.
     """
-    network = 'vmunet' 
+    network = 'WAS-Mamba' 
     model_config = {
         'num_classes': 9, 
         'input_channels': 128,
