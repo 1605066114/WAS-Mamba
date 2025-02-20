@@ -12,10 +12,8 @@ from torchvision import transforms
 
 from datasets.dataset import RandomGenerator
 from engine_synapse import *
-# from models.vmunet.VMUNet2 import VMUNet
-from models.vmunet.vmunet import VMUNet
-# from models.vmunet.VMUNet4 import VMUNet
-# from models.vmunet.VMUnet3 import VMUNet
+# from models import WAS-Mamba
+
 import sys
 # "0, 1, 2, 3"
 
@@ -83,7 +81,7 @@ def main(config):
     print('#----------Prepareing Models----------#')
     model_cfg = config.model_config
     if config.network == 'vmunet':
-        model = VMUNet(
+        model = WAS-Mamba(
             num_classes=model_cfg['num_classes'],
             input_channels=model_cfg['input_channels'],
             depths=model_cfg['depths'],
