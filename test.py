@@ -12,7 +12,7 @@ from torchvision import transforms
 
 from datasets.dataset import RandomGenerator
 from engine_synapse import *
-# from models import WAS-Mamba
+from models import WAS-Mamba
 
 import sys
 # "0, 1, 2, 3"
@@ -144,7 +144,7 @@ def main(config):
         #     }, os.path.join(checkpoint_dir, 'latest.pth'))
         # torch.save(model.state_dict(), os.path.join(checkpoint_dir, 'latest.pth'))
         print('#----------Testing----------#')
-        best_weight = torch.load('/mnt/f/pythonsource/VM-UNet-main/VM-UNet-main/results/vmunet_synapse_Saturday_14_September_2024_09h_26m_24s/checkpoints/best.pth', map_location=torch.device('cpu'))
+        best_weight = torch.load('/mnt/f/pythonsource/checkpoints/best.pth', map_location=torch.device('cpu'))
         model.load_state_dict(best_weight)
         mean_dice, mean_hd95 = val_one_epoch(
             val_dataset,
