@@ -298,8 +298,8 @@ class  WSSM(nn.Module):
         self.dt_rank = math.ceil(self.d_model / 32)  # 6
         self.resproj=nn.Linear(self.d_inner, self.d_inner, bias=bias)
         self.catconv = nn.Sequential(
-            nn.Conv2d(self.d_inner,self.d_inner, kernel_size=3, padding=1,groups=self.d_inner),
-            nn.BatchNorm2d(self.d_inner),
+            nn.Conv3d(self.d_inner,self.d_inner, kernel_size=3, padding=1,groups=self.d_inner),
+            nn.BatchNorm3d(self.d_inner),
             nn.SiLU(inplace=True),
             )
         # self.preconv = nn.Sequential(
@@ -390,8 +390,8 @@ class  WSSM(nn.Module):
         #     bias=conv_bias,
         #     groups=self.d_inner,  # 192
         # )
-        # self.conv2d_fline = nn.Sequential(
-        #     nn.Conv2d(self.d_inner, self.d_inner, kernel_size=1, padding=0),
+        # self.conv3d_fline = nn.Sequential(
+        #     nn.Conv3d(self.d_inner, self.d_inner, kernel_size=1, padding=0),
         #     nn.BatchNorm2d(self.d_inner),
         #     nn.ReLU(inplace=True))
 
@@ -960,4 +960,5 @@ class WASMamba(nn.Module):
         logits = self.wasmamba(x)
 
         return logits
+
 
