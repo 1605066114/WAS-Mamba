@@ -15,8 +15,8 @@ class setting_config:
         'num_classes': 9, 
         'input_channels': 128,
         # ----- VM-UNet ----- #
-        'depths': [2,2,2,2],
-        'depths_decoder': [2,2,2,1],
+        'depths': [1,1,1,1],
+        'depths_decoder': [1,1,1,1],
         'drop_path_rate': 0.2,
         'load_ckpt_path': None
         # 'load_ckpt_path': '',
@@ -148,4 +148,5 @@ class setting_config:
         milestones = [125, 225]
     elif sch == 'WP_CosineLR':
         warm_up_epochs = 20
+
 
