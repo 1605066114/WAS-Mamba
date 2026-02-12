@@ -12,7 +12,7 @@ from torchvision import transforms
 
 from datasets.dataset import RandomGenerator
 from engine_synapse import *
-from models import WAS-Mamba
+from models import WASMamba
 
 import sys
 # "0, 1, 2, 3"
@@ -184,3 +184,4 @@ def main(config):
 if __name__ == '__main__':
     config = setting_config
     main(config)
+
