@@ -10,7 +10,7 @@ from torchvision import transforms
 
 from datasets.dataset import RandomGenerator
 from engine_synapse import *
-from WAS-Mamba import VMUNet
+from WAS-Mamba import WASMamba
 import os
 os.environ['CUDA_LAUNCH_BLOCKING'] = '0'
 import sys
@@ -94,8 +94,8 @@ def main(config):
 
     print('#----------Prepareing Models----------#')
     model_cfg = config.model_config
-    if config.network == 'vmunet':
-        model = VMUNet(
+    if config.network == 'WASMamba':
+        model = WASMamba(
             num_classes=model_cfg['num_classes'],
             input_channels=model_cfg['input_channels'],
             depths=model_cfg['depths'],
@@ -242,3 +242,4 @@ if __name__ == '__main__':
     config = setting_config
 
     main(config)
+
