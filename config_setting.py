@@ -10,7 +10,7 @@ class setting_config:
     """
     the config of training setting.
     """
-    network = 'WAS-Mamba' 
+    network = 'WASMamba' 
     model_config = {
         'num_classes': 9, 
         'input_channels': 128,
@@ -19,11 +19,12 @@ class setting_config:
         'depths_decoder': [2,2,2,1],
         'drop_path_rate': 0.2,
         'load_ckpt_path': None
-        # 'load_ckpt_path': '/mnt/e/pythonsource/VM-UNet-main/results/vmunet_synapse_Thursday_26_September_2024_16h_30m_07s/checkpoints/best.pth',
+        # 'load_ckpt_path': '',
     }
     datasets_name = 'synapse' 
     input_size_h = 128
     input_size_w = 128
+    input_size_c = 128
     if datasets_name == 'synapse':
         data_path = './data/Synapse/train_npz/'
         datasets = Synapse_dataset
@@ -147,3 +148,4 @@ class setting_config:
         milestones = [125, 225]
     elif sch == 'WP_CosineLR':
         warm_up_epochs = 20
+
