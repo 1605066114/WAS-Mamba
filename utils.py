@@ -447,23 +447,6 @@ class myNormalize:
         return img_normalized, msk
     
 
-
-from thop import profile		 ## 导入thop模块
-def cal_params_flops(model, size, logger):
-    input = torch.randn(1, 3, size, size).cuda()
-    flops, params = profile(model, inputs=(input,))
-    print('flops',flops/1e9)			## 打印计算量
-    print('params',params/1e6)			## 打印参数量
-
-    total = sum(p.numel() for p in model.parameters())
-    print("Total params: %.2fM" % (total/1e6))
-    logger.info(f'flops: {flops/1e9}, params: {params/1e6}, Total params: : {total/1e6:.4f}')
-
-
-
-
-
-
 def calculate_metric_percase(pred, gt):
     pred[pred > 0] = 1
     gt[gt > 0] = 1
@@ -478,7 +461,7 @@ def calculate_metric_percase(pred, gt):
 
 
 
-def test_single_volume(image, label, net, classes, patch_size=[256, 256], 
+def test_single_volume(image, label, net, classes, patch_size=[128, 128,128], 
                     test_save_path=None, case=None, z_spacing=1, val_or_test=False):
     image, label = image.squeeze(0).cpu().detach().numpy(), label.squeeze(0).cpu().detach().numpy()
     if len(image.shape) == 3:
@@ -521,4 +504,5 @@ def test_single_volume(image, label, net, classes, patch_size=[256, 256],
         sitk.WriteImage(img_itk, test_save_path + '/'+ case + "_img.nii.gz")
         sitk.WriteImage(lab_itk, test_save_path + '/'+ case + "_gt.nii.gz")
         # cv2.imwrite(test_save_path + '/'+case + '.png', prediction*255)
+
     return metric_list
