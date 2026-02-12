@@ -10,10 +10,7 @@ from torchvision import transforms
 
 from datasets.dataset import RandomGenerator
 from engine_synapse import *
-# from models.vmunet.VMUNet2 import VMUNet
-# from models.vmunet.vmunet import VMUNet
-from models.vmunet.VMUNet4_2 import VMUNet
-# from models.vmunet.VMUnet3 import VMUNet
+from WAS-Mamba import VMUNet
 import os
 os.environ['CUDA_LAUNCH_BLOCKING'] = '0'
 import sys
@@ -243,4 +240,5 @@ def main(config):
 
 if __name__ == '__main__':
     config = setting_config
+
     main(config)
