@@ -80,8 +80,8 @@ def main(config):
 
     print('#----------Prepareing Models----------#')
     model_cfg = config.model_config
-    if config.network == 'vmunet':
-        model = WAS-Mamba(
+    if config.network == 'WASMamba':
+        model = WASMamba(
             num_classes=model_cfg['num_classes'],
             input_channels=model_cfg['input_channels'],
             depths=model_cfg['depths'],
@@ -184,4 +184,5 @@ def main(config):
 if __name__ == '__main__':
     config = setting_config
     main(config)
+
 
