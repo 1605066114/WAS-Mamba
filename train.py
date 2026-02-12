@@ -10,7 +10,7 @@ from torchvision import transforms
 
 from datasets.dataset import RandomGenerator
 from engine_synapse import *
-from WAS-Mamba import WASMamba
+from WASMamba import WASMamba
 import os
 os.environ['CUDA_LAUNCH_BLOCKING'] = '0'
 import sys
@@ -242,4 +242,5 @@ if __name__ == '__main__':
     config = setting_config
 
     main(config)
+
 
